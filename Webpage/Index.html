@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Arjay Cabusas — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="site">
+    <header>
+      <div class="brand">
+        <div id="header-avatar" class="logo">AC</div>
+        <div id="header-name" style="font-weight:600;margin-left:10px;">Arjay Cabusas</div>
+        <div>
+    
+
+          <div style="font-size:12px;color:var(--muted)">ﾌ卂ㄚ丂ㄖㄚㄩ爪爪ㄚ</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#" id="nav-about">About</a>
+        <a href="#" id="nav-contact">Contact</a>
+      </nav>
+      <div id="contact-card" class="info-card contact" aria-hidden="true"><p id="contact-card-text">Contact: <a href="tel:09914978236">09914978236</a></p></div>
+    </header>
+
+    <main class="hero">
+      <section class="left">
+        <h1>Hi I'm Arjay P. Cabusas!</h1>
+        <p class="lead">I am a 3rd Year College Student currently taking Bachelor on Science in Information and Technology at PSU Asingan. I love playing instruments, playing different kind of sports and videogames</p>
+        <div class="actions">
+          <button class="btn primary" id="about-btn">About Me</button>
+        </div>
+        <div id="about-card" class="info-card about" aria-hidden="true"><p id="about-card-text">I am a 3rd Year College Student currently taking Bachelor on Science in Information and Technology at PSU Asingan. I love playing instruments, playing different kind of Sports and Videogames.</p></div>
+      </section>
+
+      <aside>
+        <div class="card">
+          <div class="decor" aria-hidden="true"></div>
+          <div class="floating" aria-hidden="true"></div>
+          <div id="avatar" class="avatar" title="Profile picture">AC</div>
+          <div class="name" id="display-name">Arjay Cabusas</div>
+          <div class="role" id="display-role">Student</div>
+          <div class="socials" style="margin-top:12px">
+            <a id="fb-link" href="#" title="Facebook" target="_blank" rel="noopener noreferrer" aria-label="Facebook link">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="https://www.facebook.com/arjay.cabusas.2024">
+                <path d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07C2 17.09 5.66 21.23 10.44 21.95v-6.99H8.08v-2.97h2.36V9.41c0-2.34 1.38-3.63 3.5-3.63.99 0 2.02.17 2.02.17v2.22h-1.14c-1.12 0-1.47.7-1.47 1.42v1.7h2.5l-.4 2.97h-2.1v6.99C18.34 21.23 22 17.09 22 12.07z" fill="currentColor"/>
+              </svg>
+            </a>
+            <a id="ig-link" href="#" title="Instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram link">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="https://www.instagram.com/arjay_dubidubidapdap/">
+                <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5z" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M17.5 6.5h.01" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+          <div style="margin-top:12px;color:var(--muted);font-size:13px">
+      </aside>
+    </main>
+  </div>
+
+  
+
+  <script>
+    const headerAvatar = document.getElementById('header-avatar');
+    const avatar = document.getElementById('avatar');
+    const displayName = document.getElementById('display-name');
+    const headerName = document.getElementById('header-name');
+    const aboutBtn = document.getElementById('about-btn');
+
+    const DEFAULT_NAME = 'Arjay Cabusas';
+    displayName.textContent = DEFAULT_NAME;
+    headerName.textContent = DEFAULT_NAME;
+
+    function tryLoadLocalAvatar(filename){
+      const img = new Image();
+      img.onload = ()=>{
+        avatar.style.background = `url(${filename}) center/cover no-repeat`;
+        headerAvatar.style.background = `url(${filename}) center/cover no-repeat`;
+        avatar.textContent = '';
+        headerAvatar.textContent = '';
+      };
+      img.onerror = ()=>{};
+      img.src = filename;
+    }
+
+    tryLoadLocalAvatar('me.jpg');
+    tryLoadLocalAvatar('me.jpg');
+    (function(){
+      const aboutCard = document.getElementById('about-card');
+      const contactCard = document.getElementById('contact-card');
+      const navAbout = document.getElementById('nav-about');
+      const navContact = document.getElementById('nav-contact');
+
+      function toggleCard(card){
+        if (!card) return;
+        card.classList.toggle('show');
+      }
+
+      if (aboutBtn) aboutBtn.addEventListener('click', ()=>{ toggleCard(aboutCard); if (contactCard) contactCard.classList.remove('show'); });
+      if (navAbout) navAbout.addEventListener('click', (e)=>{ e.preventDefault(); toggleCard(aboutCard); if (contactCard) contactCard.classList.remove('show'); });
+      if (navContact) navContact.addEventListener('click', (e)=>{ e.preventDefault(); toggleCard(contactCard); if (aboutCard) aboutCard.classList.remove('show'); });
+    })();
+    
+      
+      (function(){
+        const fb = document.getElementById('fb-link');
+        const ig = document.getElementById('ig-link');
+        function setup(anchor, key, promptText, defaultUrl){
+          if (!anchor) return;
+          const saved = localStorage.getItem(key);
+          if (saved) anchor.href = saved;
+          anchor.addEventListener('click', function(e){
+            e.preventDefault();
+            let url = localStorage.getItem(key) || anchor.getAttribute('href') || '';
+            if (!url || url === '#'){
+              const entered = window.prompt(promptText, defaultUrl);
+              if (!entered) return;
+              url = entered.trim();
+              if (!/^https?:\/\//i.test(url)) url = 'https://' + url;
+              localStorage.setItem(key, url);
+              anchor.href = url;
+            }
+            window.open(url, '_blank', 'noopener');
+          });
+        }
+        setup(fb, 'fbLink', 'Enter your Facebook profile URL (e.g. https://www.facebook.com/your.name)', 'https://www.facebook.com/arjay.cabusas.2024');
+        setup(ig, 'igLink', 'Enter your Instagram profile URL (e.g. https://www.instagram.com/your.handle)', 'https://www.instagram.com/arjay_dubidubidapdap/');
+      })();
+  </script>
+</body>
+</html>
